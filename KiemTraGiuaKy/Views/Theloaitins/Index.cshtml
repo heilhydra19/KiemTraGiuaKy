@@ -1,0 +1,50 @@
+﻿@model IEnumerable<KiemTraGiuaKy.Models.Theloaitin>
+
+@{
+    ViewBag.Title = "Danh sách";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh Sách Thể Loại</h2>
+
+<p>
+    @Html.ActionLink("Tạo Mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã Loại
+        </th>
+        <th>
+            Tên Loại
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Maloai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tentheloai)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id = item.Maloai }) |
+            @Html.ActionLink("Chi Tiết", "Details", new { id = item.Maloai }) |
+            @Html.ActionLink("Xóa", "Delete", new { id = item.Maloai })
+            <button onclick="myFunction()">Xóa</button>
+        </td>
+    </tr>
+}
+</table>
+<script>
+    function myFunction() {
+        if (confirm("Press a button!")) {
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+        } else {
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+        }
+        document.getElementById("demo").innerHTML = txt;
+    }
+</script>
